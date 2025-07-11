@@ -1,39 +1,26 @@
 from sys import stdin
-import heapq
 
 stdin = open("input.txt", "r")
 
-W, H = list(map(int, stdin.readline().split()))
+W, H = map(int, stdin.readline().split())
 
-wArray = []
-hArray = []
-
-heapq.heappush(hArray, H)
-heapq.heappush(wArray, W)
+wArray = [0, W]
+hArray = [0, H]
 
 N = int(stdin.readline())
 
-for i in range(N):
-    How, Where = list(map(int, stdin.readline().split()))
+for _ in range(N):
+    How, Where = map(int, stdin.readline().split())
 
     if 0 == How:
-        heapq.heappush(hArray, Where)
+        hArray.append(Where)
     else:
-        heapq.heappush(wArray, Where)
+        wArray.append(Where)
 
-MaxW = 0
-pre = 0
-while wArray:
-    cur = heapq.heappop(wArray)
-    MaxW = max(MaxW, cur - pre)
-    pre = cur
+wArray.sort()
+hArray.sort()
 
-MaxH = 0
-pre = 0
-while hArray:
-    cur = heapq.heappop(hArray)
-    MaxH = max(MaxH, cur - pre)
-    pre = cur
+maxW = max([y - x for x, y in zip(wArray, wArray[1:])])
+maxH = max([y - x for x, y in zip(hArray, hArray[1:])])
 
-
-print(MaxH * MaxW)
+print(maxH * maxW)
