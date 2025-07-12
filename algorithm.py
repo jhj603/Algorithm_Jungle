@@ -1,9 +1,14 @@
 from sys import stdin
+import heapq
 
-stdin = open('input.txt', 'r')
+stdin = open("input.txt", "r")
 
 N = int(stdin.readline())
-Array = [int(stdin.readline()) for _ in range(N)]
 
-def Quick(List, start, end):
-    
+heap = []
+
+for _ in range(N):
+    heapq.heappush(heap, int(stdin.readline()))
+
+for _ in range(N):
+    print(heapq.heappop(heap))
