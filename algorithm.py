@@ -12,7 +12,7 @@ def Quick(List, start, end):
         pivot_index = part(List, start, end)
 
         Quick(List, start, pivot_index - 1)
-        Quick(List, pivot + 1, end)
+        Quick(List, pivot_index + 1, end)
 
 
 def part(List, start, end):
