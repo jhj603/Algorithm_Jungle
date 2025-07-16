@@ -10,4 +10,14 @@ def Factorial(num):
     return num * Factorial(num - 1)
 
 
-print(Factorial(int(stdin.readline())))
+def Factorial_tail(num, sum):
+    if 0 == num:
+        return sum
+
+    return Factorial_tail(num - 1, sum * num)
+
+
+n = int(stdin.readline())
+
+print(Factorial(n))
+print(Factorial_tail(n, 1))
