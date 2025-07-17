@@ -8,12 +8,12 @@ array = list(map(int, stdin.readline().split()))
 
 array.sort()
 
-result = 10**8
+result = float("inf")
 
 left = ans_l = ans_r = 0
 right = n - 1
 
-while left <= right:
+while left < right:
     temp_sum = array[left] + array[right]
 
     if result > abs(temp_sum):
@@ -21,7 +21,9 @@ while left <= right:
         ans_l = array[left]
         ans_r = array[right]
 
-    if 0 < temp_sum:
+    if not temp_sum:
+        break
+    elif 0 < temp_sum:
         right -= 1
     else:
         left += 1
