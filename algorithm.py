@@ -10,14 +10,17 @@ array.sort()
 
 result = float("inf")
 
-left = ans_l = ans_r = 0
+left = 0
 right = n - 1
+
+ans_l = array[0]
+ans_r = array[-1]
 
 while left < right:
     temp_sum = array[left] + array[right]
 
     if result > abs(temp_sum):
-        result = temp_sum
+        result = abs(temp_sum)
         ans_l = array[left]
         ans_r = array[right]
 
