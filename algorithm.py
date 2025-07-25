@@ -1,8 +1,9 @@
-from sys import stdin
+import sys
 
-stdin = open("input.txt", "r")
+sys.setrecursionlimit(10**5)
+sys.stdin = open("input.txt", "r")
 
-k = int(stdin.readline())
+k = int(sys.stdin.readline())
 
 
 def dfs(start, g, v, side):
@@ -20,14 +21,14 @@ def dfs(start, g, v, side):
 
 
 for _ in range(k):
-    v, e = map(int, stdin.readline().split())
+    v, e = map(int, sys.stdin.readline().split())
 
     graph = [[] for _ in range(v)]
     visit = [0] * v
     is_bipartite = True
 
     for _ in range(e):
-        a, b = map(int, stdin.readline().split())
+        a, b = map(int, sys.stdin.readline().split())
 
         a -= 1
         b -= 1
