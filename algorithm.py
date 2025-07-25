@@ -1,7 +1,8 @@
-from sys import stdin
+import sys
 from collections import deque
 
-stdin = open("input.txt", "r")
+sys.setrecursionlimit(10**5)
+sys.stdin = open("input.txt", "r")
 
 n = int(stdin.readline())
 
@@ -19,21 +20,34 @@ for i in range(1, n):
     tree[v].append(u)
 
 
-def bfs(start):
-    que = deque([start])
-    visit[start] = True
-
-    while que:
-        current = que.popleft()
-
-        for i in tree[current]:
-            if not visit[i]:
-                visit[i] = True
-                parents[i] = current + 1
-                que.append(i)
+# DFS 풀이
+def dfs(start):
+    for i in tree[start]:
+        if not visit[i]:
+            visit[i] = True
+            parents[i] = start + 1
+            dfs(i)
 
 
-bfs(0)
+visit[0] = True
+dfs(0)
+
+# BFS 풀이
+# def bfs(start):
+#     que = deque([start])
+#     visit[start] = True
+
+#     while que:
+#         current = que.popleft()
+
+#         for i in tree[current]:
+#             if not visit[i]:
+#                 visit[i] = True
+#                 parents[i] = current + 1
+#                 que.append(i)
+
+
+# bfs(0)
 
 for i in range(1, n):
     print(parents[i])
