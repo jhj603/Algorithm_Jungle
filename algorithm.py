@@ -4,14 +4,14 @@ from collections import deque
 sys.setrecursionlimit(10**5)
 sys.stdin = open("input.txt", "r")
 
-n = int(stdin.readline())
+n = int(sys.stdin.readline())
 
 tree = [[] for _ in range(n)]
 visit = [False] * n
 parents = [0] * n
 
 for i in range(1, n):
-    u, v = map(int, stdin.readline().split())
+    u, v = map(int, sys.stdin.readline().split())
 
     u -= 1
     v -= 1
