@@ -33,16 +33,6 @@ def find_pre(start):
     return total_count
 
 
-def in_to_in(start):
-    can_go = 0
-
-    for i in tree[start]:
-        if "1" == a[i]:
-            can_go += 1
-
-    return can_go
-
-
 count = 0
 temp = 0
 for i in range(n):
