@@ -2,9 +2,9 @@ from sys import stdin
 
 stdin = open("input.txt", "r")
 
-T = int(stdin.readline())
+t = int(stdin.readline())
 
-for _ in range(T):
+for _ in range(t):
     n = int(stdin.readline())
 
     coins = list(map(int, stdin.readline().split()))
